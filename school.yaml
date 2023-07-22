@@ -1,0 +1,7 @@
+school:
+ -School name: Kvs
+  Principal: Someone
+  -Students:
+   -r.no: 88
+   name: Satya
+   marks: 88

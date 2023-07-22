@@ -1,0 +1,92 @@
+student: !!seq
+ -marks
+ -name
+ -roll_no
+ 
+ #like this also
+ cities:[new delhi,mumbai]
+
+ #some of the keys of the seq will be empty
+ #sparse seq
+ sparse seq:
+  -hey
+  -how
+  -
+  -Null
+  -sup
+  #nested sequence
+  nested sequence:
+   -
+    -mango
+    -apple
+    -banana
+  -
+   -marks
+   -roll num
+   -date
+
+   #key:value pairs are called maps
+   !!map
+
+   #nested mappings:map within map
+   name: Satya
+   role:
+     age: 21
+     job: student 
+     
+     #same as
+   name: Satya
+   role: {age: 21, job: student}
+ 
+ #use !!pairs when duplicate keys
+ du[licate pairs example: !!pairs 
+  -job: student
+  -job: teacher
+
+  #use !!set for unique values
+  names: !!set
+   ? SAtya
+   ? Ram
+   ? Rahul
+    
+  #dictionary !!omap
+  people: !!omap
+     -Satya:
+       Name: Satya
+       Age: 21
+     -Rahul:
+       Name: Rahul
+       Age: 20
+
+#reusing properties usings anchors
+
+likings: &likes
+ fav fruit: Grapes
+ dislikes: Mango
+
+person1:
+ name: SAtya
+ <<: *likes
+
+person2:
+ name: Rahul
+ <<: *likes
+ 
+person3:
+ name: raj
+ <<: *likes
+ 
+person4:
+ name: SAt
+ <<: *likes
+ dislikes: berry
+
+ #person4 will be like this
+ person4:
+ name: SAt
+ fav fruit: Grapes
+ dislikes: Mango
+ dislikes: berry
+ 
+ 
+
